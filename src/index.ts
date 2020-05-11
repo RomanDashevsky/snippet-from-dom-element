@@ -1,6 +1,6 @@
 const getOpenTag = (outerHtml: string): string => {
-  const index = outerHtml.indexOf('>');
-  return outerHtml.slice(0, index);
+  const endIndex = outerHtml.indexOf('>');
+  return outerHtml.slice(0, endIndex + 1);
 }
 
 const getInnerText = (element: Element, tagName: string, innerContentLength: number): string => {
@@ -18,7 +18,7 @@ const getInnerText = (element: Element, tagName: string, innerContentLength: num
   return textPrefix + truncatedText;
 }
 
-const  getSnippetFromDomElement = (element: Element, innerContentLength: number): string => {
+const  getSnippetFromDomElement = (element: Element, innerContentLength = 10): string => {
   const outerHtml = element.outerHTML;
   const tagName = element.tagName.toLowerCase();
 
