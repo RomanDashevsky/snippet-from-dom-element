@@ -1,0 +1,31 @@
+{
+  "name": "snippet-from-dom-element",
+  "version": "0.0.1",
+  "description": "This tool to get a snippet from the dom element. The snippet has original open-close HTML tag with attributes and truncated inner text.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanDashevsky/snippet-from-dom-element.git"
+  },
+  "keywords": [
+    "dom",
+    "html",
+    "snippet"
+  ],
+  "author": "Roman Dashevsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomanDashevsky/snippet-from-dom-element/issues"
+  },
+  "homepage": "https://github.com/RomanDashevsky/snippet-from-dom-element#readme",
+  "devDependencies": {
+    "ts-loader": "^7.0.3",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
