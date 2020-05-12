@@ -19,7 +19,7 @@ const getInnerText = (element: Element, tagName: string, innerContentLength: num
 }
 
 const  getSnippetFromDomElement = (element: Element, innerContentLength = 10): string => {
-  if (!element.tagName) {
+  if (!element.tagName || !element.outerHTML) {
     return '';
   }
 
