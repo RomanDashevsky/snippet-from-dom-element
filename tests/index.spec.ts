@@ -113,9 +113,8 @@ describe('Check get snippet from dom element', () => {
   });
 
   it('Should return empty string when set parameter with none element type', () => {
-    const element = document;
     // @ts-ignore
-    const snippet = getSnippetFromDomElement(element);
+    const snippet = getSnippetFromDomElement(document);
     expect(snippet).toBe('');
   });
 });
