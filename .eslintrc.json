@@ -42,5 +42,8 @@
   ],
   "ignorePatterns": [
     "dist"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/ban-ts-ignore": "off"
+  }
 }
