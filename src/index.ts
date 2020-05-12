@@ -19,6 +19,10 @@ const getInnerText = (element: Element, tagName: string, innerContentLength: num
 }
 
 const  getSnippetFromDomElement = (element: Element, innerContentLength = 10): string => {
+  if (!element.tagName || !element.outerHTML) {
+    return '';
+  }
+
   const outerHtml = element.outerHTML;
   const tagName = element.tagName.toLowerCase();
 

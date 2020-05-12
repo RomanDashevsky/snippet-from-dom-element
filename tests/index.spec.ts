@@ -111,4 +111,11 @@ describe('Check get snippet from dom element', () => {
     const snippet = getSnippetFromDomElement(element, 20);
     expect(snippet).toBe('<div class="our-story-card-text">... Unlimited movies, TV...</div>');
   });
+
+  it('Should return empty string when set not element type', () => {
+    const element = document;
+    // @ts-ignore
+    const snippet = getSnippetFromDomElement(element);
+    expect(snippet).toBe('');
+  });
 });
