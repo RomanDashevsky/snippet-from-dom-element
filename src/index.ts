@@ -3,22 +3,28 @@ const getOpenTag = (outerHtml: string): string => {
   return outerHtml.slice(0, endIndex + 1);
 }
 
-const getInnerText = (element: Element, tagName: string, innerContentLength: number): string => {
-  const textContent = element.textContent;
-
-  if (tagName === 'html' || tagName === 'body' || !textContent.length) {
-    return '...'
+const getAdjustedInnerContentLength = (innerHTML: string, innerContentLength: number): number => {
+  if (innerHTML.length <= innerContentLength) {
+    return innerContentLength;
   }
 
-  const innerHTML = element.innerHTML;
-  const textPrefix = innerHTML[0] === '<' ? '... ' : '';
-  const truncatedText = textContent.length <= innerContentLength
-    ? textContent
-    : textContent.slice(0, innerContentLength) + '...';
-  return textPrefix + truncatedText;
+  return  innerHTML.indexOf(' ', innerContentLength);
 }
 
-const  getSnippetFromDomElement = (element: Element, innerContentLength = 10): string => {
+const getInnerContent = (element: Element, tagName: string, innerContentLength: number): string => {
+  if (tagName === 'html' || tagName === 'body') {
+    return '...';
+  }
+  
+  const innerHTML = element.innerHTML;
+  const adjustedInnerContentLength = getAdjustedInnerContentLength(innerHTML, innerContentLength)
+  const truncatedText = innerHTML.length <= adjustedInnerContentLength
+    ? innerHTML
+    : innerHTML.slice(0, adjustedInnerContentLength).trim() + '...';
+  return truncatedText;
+}
+
+const  getSnippetFromDomElement = (element: Element, innerContentLength = 30): string => {
   if (!element.tagName || !element.outerHTML) {
     return '';
   }
@@ -31,7 +37,7 @@ const  getSnippetFromDomElement = (element: Element, innerContentLength = 10): s
   }
 
   const openTag = getOpenTag(outerHtml);
-  const text = getInnerText(element, tagName, innerContentLength);
+  const text = getInnerContent(element, tagName, innerContentLength);
   const closeTag = `</${tagName}>`;
 
   return openTag + text + closeTag;
