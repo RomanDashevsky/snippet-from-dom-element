@@ -112,7 +112,7 @@ describe('Check get snippet from dom element', () => {
     expect(snippet).toBe('<div class="our-story-card-text"><h1 class="our-story-card-title" data-uia="hero-title"...</div>');
   });
 
-  it('Should return empty string when set not element type', () => {
+  it('Should return empty string when set parameter with none element type', () => {
     const element = document;
     // @ts-ignore
     const snippet = getSnippetFromDomElement(element);
