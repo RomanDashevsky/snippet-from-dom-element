@@ -2,7 +2,7 @@
   "name": "snippet-from-dom-element",
   "version": "0.0.1",
   "description": "This tool to get a snippet from the dom element. The snippet has original open-close HTML tag with attributes and truncated inner text.",
-  "main": "dist/index.js",
+  "main": "dist/index.min.js",
   "scripts": {
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "build": "webpack",
