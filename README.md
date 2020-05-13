@@ -7,8 +7,14 @@ and truncated inner text.
 
 ## Install 
 
+For npm:
 ```bash
 npm install --save snippet-from-dom-element
+```
+
+For yarn:
+```bash
+yarn add snippet-from-dom-element
 ```
 
 ## Example
